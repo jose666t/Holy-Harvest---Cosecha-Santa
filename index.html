@@ -1,0 +1,1754 @@
+<!DOCTYPE html><html lang="es"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Harvest - Cosecha Santa | Tu Tienda de Afiliados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3a6ea5;
+            --secondary-color: #ff6b6b;
+            --accent-color: #6a67ce;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --background-color: #f9f9f9;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --light-text: #777777;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: var(--dark-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.2rem;
+            display: block;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(58, 110, 165, 0.1);
+            color: var(--primary-color);
+            padding-left: 1.5rem;
+        }
+        
+        .dropdown-content a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(30deg);
+            z-index: 0;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .header-search {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-search input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .header-search button {
+            background: linear-gradient(135deg, var(--secondary-color), #ff9f43);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .header-search button:hover {
+            background: linear-gradient(135deg, #ff5252, #ff9f43);
+        }
+        
+        /* Wave separator */
+        .wave-separator {
+            height: 70px;
+            fill: var(--dark-color);
+            margin-top: -1px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Dropdown filter */
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .filter-wrapper {
+            position: relative;
+            min-width: 220px;
+        }
+        
+        .filter-select {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            background-color: white;
+            color: var(--text-color);
+            font-weight: 500;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .filter-select:hover {
+            border-color: var(--accent-color);
+        }
+        
+        .filter-wrapper::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            pointer-events: none;
+        }
+        
+        .sort-wrapper {
+            position: relative;
+            min-width: 200px;
+        }
+        
+        .section-title {
+            position: relative;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        /* Product grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 1.5rem;
+        }
+        
+        .product-card {
+            background-color: var(--card-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hot-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #ff9f43;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+        
+        .hot-badge i {
+            margin-right: 5px;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            height: 3.3rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            color: var(--text-color);
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.3rem;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            color: #ffa41c;
+        }
+        
+        .product-rating span {
+            margin-left: 5px;
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+        
+        .product-button {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .product-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .product-button:hover::before {
+            left: 100%;
+        }
+        
+        .product-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-button i {
+            margin-left: 8px;
+        }
+        
+        .product-shipped {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+        
+        .product-shipped i {
+            margin-right: 5px;
+            color: #2ecc71;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 2rem 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        .footer-bottom p {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 5px;
+        }
+        
+        .pagination button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .pagination button:hover:not(.active) {
+            background-color: var(--light-color);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            padding: 3rem 0;
+            margin-top: 3rem;
+            color: white;
+        }
+        
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+        .newsletter h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: linear-gradient(135deg, var(--secondary-color), #ff9f43);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: linear-gradient(135deg, #ff5252, #ff9f43);
+        }
+        
+        /* Loading animation */
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .loader div {
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 3px;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        
+        .loader div:nth-child(1) {
+            animation-delay: -0.3s;
+        }
+        
+        .loader div:nth-child(2) {
+            animation-delay: -0.15s;
+        }
+        
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 0;
+            display: none;
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .empty-state p {
+            color: var(--light-text);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .filter-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filter-wrapper, .sort-wrapper {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.8rem 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-color);
+                flex-direction: column;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .nav-links.active {
+                max-height: 500px;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .dropdown.active .dropdown-content {
+                max-height: 500px;
+            }
+            
+            .dropdown-content a {
+                padding-left: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-search {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+            
+            .header-search input {
+                width: 100%;
+                border-radius: 10px 10px 0 0;
+            }
+            
+            .header-search button {
+                width: 100%;
+                padding: 0.8rem;
+                border-radius: 0 0 10px 10px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+            
+            .newsletter-form input {
+                width: 100%;
+                border-radius: 10px 10px 0 0;
+            }
+            
+            .newsletter-form button {
+                width: 100%;
+                padding: 0.8rem;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-shopping-bag"></i>
+              Holy Harvest -Cosecha Santa
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-th-large"></i> Categorías <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#" data-category="all"><i class="fas fa-border-all"></i> Todas las categorías</a>
+                        <a href="#" data-category="electronics"><i class="fas fa-laptop"></i> Electrónica</a>
+                        <a href="#" data-category="fashion"><i class="fas fa-tshirt"></i> Moda</a>
+                        <a href="#" data-category="home"><i class="fas fa-home"></i> Hogar</a>
+                        <a href="#" data-category="beauty"><i class="fas fa-magic"></i> Belleza</a>
+                        <a href="#" data-category="sports"><i class="fas fa-running"></i> Deportes</a>
+                        <a href="#" data-category="toys"><i class="fas fa-gamepad"></i> Juguetes</a>
+                    </div>
+                </li>
+                <li><a href="#"><i class="fas fa-fire"></i> Ofertas</a></li>
+                <li><a href="#"><i class="fas fa-star"></i> Destacados</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <h1>Descubre los Mejores Productos</h1>
+            <p>Seleccionamos cuidadosamente los artículos más populares y con mejores descuentos para ti</p>
+            
+            <div class="header-search">
+                <input type="text" placeholder="¿Qué estás buscando?" id="searchInput">
+                <button type="button"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Productos Destacados</h2>
+        
+        <div class="filter-container">
+            <div class="filter-wrapper">
+                <select class="filter-select" id="categoryFilter">
+                    <option value="all">Todas las categorías</option>
+                    <option value="electronics">Electrónica</option>
+                    <option value="fashion">Moda</option>
+                    <option value="home">Hogar</option>
+                    <option value="beauty">Belleza</option>
+                    <option value="sports">Deportes</option>
+                    <option value="toys">Juguetes</option>
+                </select>
+            </div>
+            
+            <div class="sort-wrapper">
+                <select class="filter-select" id="sortFilter">
+                    <option value="popular">Más populares</option>
+                    <option value="price-low">Precio: de menor a mayor</option>
+                    <option value="price-high">Precio: de mayor a menor</option>
+                    <option value="discount">Mayor descuento</option>
+                    <option value="rating">Mejor valorados</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Loading animation -->
+        <div class="loader" id="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState">
+            <i class="fas fa-search"></i>
+            <h3>No se encontraron productos</h3>
+            <p>Intenta con otros filtros o categorías</p>
+        </div>
+        
+        <div class="product-grid" id="productGrid">
+            <!-- Los productos se cargarán aquí desde JavaScript -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button><i class="fas fa-ellipsis-h"></i></button>
+            <button><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Suscríbete a Nuestra Newsletter</h2>
+            <p>Recibe las mejores ofertas y descuentos exclusivos directamente en tu email</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu dirección de email">
+                <button type="submit"><i class="fas fa-paper-plane"></i> Suscribirse</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Holy Harvest - Cosecha Santa</h3>
+                <p>Tu tienda de confianza para encontrar los mejores productos de AliExpress con los mayores descuentos. Todos los productos son cuidadosamente seleccionados por nuestro equipo.</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/holy_harvest_cosecha_santa?igsh=MXB1MWw4dHlqc293Yg=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Productos Destacados</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Ofertas del Día</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Nuevos Productos</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Más Vendidos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Categorías</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Electrónica</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Moda</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Hogar</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Belleza</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Deportes</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-envelope"></i> blandonjose6787@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +505 81339118
+                    +505 8905 3142</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nicaragua 
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Holy Harvest - Cosecha Santa. Todos los derechos reservados. Diseñado con <i class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Definir productos directamente en el código
+        const products = [
+                 {
+                id: 1,
+                title: "Teclado magnético",
+                price: "29.44",
+                originalPrice: "48.67",
+                discount: "-59.3%",
+                image: "img/teclado.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_ms6JvhV",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "electronics",
+                sales: 145
+            },
+                 {
+                id: 2,
+                title: "Cortadora de filamentos Seleadlab ERCF V2",
+                price: "0.99",
+                originalPrice: "9.37",
+                discount: "-89.4%",
+                image: "img/cortadora.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mt0kaiL",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "electronics",
+                sales: 175
+            },
+                 {
+                id: 3,
+                title: "Soporte externo para tarjeta gráfica egpu",
+                price: "114.79",
+                originalPrice: "124.29",
+                discount: "-7.64%",
+                image: "img/soporte.jpg", // Cambiado a ruta local
+                link: "https://aliexpress.com/your-affiliate-link-1",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: true,
+                category: "electronics",
+                sales: 125
+            },
+                 {
+                id: 5,
+                title: "Balón de baloncesto silencioso y apretable para niños.",
+                price: "0.99",
+                originalPrice: "8.86.",
+                discount: "-60%",
+                image: "img/1.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mPQPkeF",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "sports",
+                sales: 185
+            },
+                 {
+                id: 5,
+                title: "Señuelos de pesca flotantes de 30 g y 110 mm,",
+                price: "0.99",
+                originalPrice: "5.49",
+                discount: "-50%",
+                image: "img/2.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mMYPNOR",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "sports",
+                sales: 195
+            },
+                 {
+                id: 6,
+                title: "Ruedas de carbono ELITEWHEELS ENT 2.0 con freno de disco",
+                price: "394.80",
+                originalPrice: "576.15",
+                discount: "-30%",
+                image: "img/3.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mLKhTsb",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: true,
+                category: "sports",
+                sales: 175
+            },
+                 {
+                id: 7,
+                title: "Conjunto de sudadera y leggings de Mickey Mouse",
+                price: "12.10",
+                originalPrice: "22.00",
+                discount: "-45%",
+                image: "img/4.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mOcXrkj",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 125
+            },
+                  {
+                id: 8,
+                title: "Conjunto de dos piezas de para mujer para el verano",
+                price: "0.99",
+                originalPrice: "13.79",
+                discount: "-91%",
+                image: "img/5.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mrvFmvv",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 176
+            },     {
+                id: 9,
+                title: "Top mujer 2024 moda de verano patrón Floral",
+                price: "0.99",
+                originalPrice: "7.09",
+                discount: "-86%",
+                image: "img/6.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mKYXf87",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: true,
+                category: "fashion",
+                sales: 176
+            },
+            {
+                id: 10,
+                title: "Juguete de construcción para niño",
+                price: "0.99",
+                originalPrice: "10.44",
+                discount: "-38%",
+                image: "img/7.jpg",
+                link: "https://s.click.aliexpress.com/e/_mttolAP",
+                rating: 4.3,
+                reviews: 687,
+                freeShipping: true,
+                hot: false,
+                category: "toys",
+                sales: 432
+            },
+                 {
+                id: 11,
+                title: "Figura de acción P1 Rex de 6 de Star Wars 104.",
+                price: "10.95",
+                originalPrice: "24.31",
+                discount: "-20%",
+                image: "img/8.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_msXA7NH",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "toys",
+                sales: 157
+            },
+
+               {
+                id: 12,
+                title: "Esmalte de uñas en gel AS de 15 ml",
+                price: "2.92",
+                originalPrice: "",
+                discount: "",
+                image: "img/9.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mPY4mxV",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "beauty",
+                sales: 125
+            },     {
+                id: 13,
+                title: "Esmalte de uñas en gel de color puro ROSALIND, bolígrafo para uñas artísticas",
+                price: "0.99",
+                originalPrice: "1.72",
+                discount: "-2%",
+                image: "img/10.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mtdCgLl",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: true,
+                category: "beauty",
+                sales: 845
+            },     {
+                id: 14,
+                title: "Humidificador de puros de madera de cedro para viaje con humidificador",
+                price: "32.99",
+                originalPrice: "47.13",
+                discount: "-30%",
+                image: "img/11.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mNew8gr",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "home",
+                sales: 945
+            },     {
+                id: 15,
+                title: "Encendedor eléctrico de metal a prueba de viento",
+                price: "0.10",
+                originalPrice: "0.14",
+                discount: "-53%",
+                image: "img/12.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mNHN9Ar",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "home",
+                sales: 245
+            },     {
+                id: 16,
+                title: "100% zapatos dorados Trump VICTORY de alta",
+                price: "22.16",
+                originalPrice: "29.66",
+                discount: "-74%",
+                image: "img/13.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mtuZB5N",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 345
+            },     {
+                id: 17,
+                title: "Figuras de acción con estampado 3D de Jujutsu ",
+                price: "4.02",
+                originalPrice: "26.80",
+                discount: "-15%",
+                image: "img/14.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mrlGoGn",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "toys",
+                sales: 345
+            },     {
+                id: 18,
+                title: "Funda de teléfono suave transparente",
+                price: "0.99",
+                originalPrice: "3.84",
+                discount: "-25.8%",
+                image: "img/15.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mtfXhvN",
+                rating: 5,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "electronics",
+                sales: 345
+            },     {
+                id: 19,
+                title: "Mini impresora térmica T02",
+                price: "10.49",
+                originalPrice: "35.98",
+                discount: "-50%",
+                image: "img/16.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mNmQaBl",
+                rating: 5,
+                reviews: 253,
+                freeShipping: true,
+                hot: true,
+                category: "electronics",
+                sales: 1235
+            },     {
+                id: 20,
+                title: "Pelucas de cabello humano de anclaje rubio",
+                price: "42.68",
+                originalPrice: "209.09",
+                discount: "-20.34%",
+                image: "img/17.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mKoVbEB",
+                rating: 5,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "beauty",
+                sales: 377
+            },     {
+                id: 21,
+                title: "Pulsera trenzada de cuero para hombre",
+                price: "0.75",
+                originalPrice: "",
+                discount: "",
+                image: "img/18.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mNGhiJ5",
+                rating: 5,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 124
+            },     {
+                id: 22,
+                title: "Afilador de cuchillos rodante, soporte para cuchillos",
+                price: "26.03",
+                originalPrice: "34.52",
+                discount: "-24.62%",
+                image: "img/19.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_m00BF59",
+                rating: 4.7,
+                reviews: 543,
+                freeShipping: true,
+                hot: false,
+                category: "home",
+                sales: 305
+            },     {
+                id: 23,
+                title: "Figuras de bloques de construcción de Pokémon, animé etc",
+                price: "0.99",
+                originalPrice: "22.12",
+                discount: "-95.52%",
+                image: "img/20.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_mOQPjHl",
+                rating: 5,
+                reviews: 743,
+                freeShipping: true,
+                hot: false,
+                category: "toys",
+                sales: 145
+            },     {
+                id: 24,
+                title: "Película reflectante para ventana de espejo unidireccional",
+                price: "0.99",
+                originalPrice: "2.77",
+                discount: "-64.26%",
+                image: "img/21.jpg", // Cambiado a ruta local
+                link: "https://s.click.aliexpress.com/e/_msrTPn1",
+                rating: 4,
+                reviews: 253,
+                freeShipping: true,
+                hot: false,
+                category: "home",
+                sales: 700
+            },     {
+                id: 25,
+                title: "Conjunto de uniforme de fútbol local de México talla 24-25B, traje de fútbol",
+                price: "16.15",
+                originalPrice: "21.69",
+                discount: "-26%",
+                image: "img/22.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4jyyxy588z83",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 1245
+            },
+                 {
+                id: 26,
+                title: "Bolso de hombro estilo francés para mujer, nueva moda de alta calidad",
+                price: "10.70",
+                originalPrice: "11.50",
+                discount: "-7%",
+                image: "img/23.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4jz272ma11kg",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 1245
+            },
+                 {
+                id: 27,
+                title: "Balon de fútbol n.º 5 de PU a prueba de explosiones",
+                price: "20.40",
+                originalPrice: "23.10",
+                discount: "-12%",
+                image: "img/24.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4jz75b2sbhat",
+                rating: 5,
+                reviews: 2543,
+                freeShipping: true,
+                hot: true,
+                category: "sports",
+                sales: 1255
+            },
+                 {
+                id: 28,
+                title: "NAWLY Sudadera con capucha térmica con cordón y cremallera",
+                price: "10.19",
+                originalPrice: "13.29",
+                discount: "-23%",
+                image: "img/25.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4k0aphkw4kcq",
+                rating: 5,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 1285
+            },
+                 {
+                id: 29,
+                title: "ceja Jabón , 1 pieza de larga duración portátil",
+                price: "1.52",
+                originalPrice: "2.40",
+                discount: "-37%",
+                image: "img/26.jpg", // Cambiado a ruta local
+                link: " https://onelink.shein.com/10/4k0bbqnfsqi8",
+                rating: 5,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "beauty",
+                sales: 1245
+            },
+                 {
+                id: 30,
+                title: "2 Piezas Conjunto De Camiseta De Manga Corta Y Pantalones",
+                price: "5.99",
+                originalPrice: "6.49",
+                discount: "-8%",
+                image: "img/27.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4k0bryol736d",
+                rating: 5,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "fashion",
+                sales: 1245
+            },
+                 {
+                id: 31,
+                title: "1 pieza Esterilizador de cepillo de dientes inteligente blanco",
+                price: "7.40",
+                originalPrice: "7.70",
+                discount: "-4%",
+                image: "img/28.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4k0c6ngvbole",
+                rating: 4,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "electronics",
+                sales: 1249
+            },
+              {
+                id: 32,
+                title: "1 pieza/2 piezas Herramientas de extensión plegables",
+                price:"5.51" ,
+                originalPrice: "8.00",
+                discount: "-31%",
+                image: "img/29.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4k0cmvi0vng1",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: false,
+                category: "home",
+                sales: 1245
+            },
+                 {
+                id: 33,
+                title:"Sanrio Bloques de construcción de Hangyodon de Sanrio",
+                price: "2.20",
+                originalPrice: "",
+                discount: "",
+                image: "img/30.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4k0d92ljc96m",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: true,
+                category: "electronics",
+                sales: 1245
+            },
+                 {
+                id: 34,
+                title: "Cazadora tejido protector contra el sol con capucha",
+                price: "8.77",
+                originalPrice: "11.49",
+                discount: "-24%",
+                image: "img/31.jpg", // Cambiado a ruta local
+                link: "https://onelink.shein.com/10/4k0mwrtlx1qa",
+                rating: 4.7,
+                reviews: 2543,
+                freeShipping: true,
+                hot: true,
+                category: "fashion",
+                sales: 1245
+            },
+        ];
+
+        // Función para renderizar productos
+        function renderProducts(productsToShow) {
+            const productGrid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+            
+            productGrid.innerHTML = '';
+            
+            if (productsToShow.length === 0) {
+                productGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            productGrid.style.display = 'grid';
+            emptyState.style.display = 'none';
+            
+            productsToShow.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.dataset.category = product.category;
+                
+                productCard.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.title}" class="product-image">
+                        <div class="discount-badge">${product.discount}</div>
+                        ${product.hot ? '<div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>' : ''}
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <div class="product-meta">
+                            <div class="product-price">$${product.price} <small style="text-decoration: line-through; color: #999; font-size: 0.8rem;">$${product.originalPrice}</small></div>
+                            <div class="product-rating">
+                                ${'★'.repeat(Math.floor(product.rating))}${product.rating % 1 >= 0.5 ? '½' : ''}
+                                <span>(${product.reviews})</span>
+                            </div>
+                        </div>
+                        <div class="product-shipped">
+                            ${product.freeShipping ? '<i class="fas fa-shipping-fast"></i> Envío gratis' : '<i class="fas fa-truck"></i> Gastos de envío no incluidos'}
+                        </div>
+                        <a href="${product.link}" class="product-button" target="_blank">
+                            Comprar <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                `;
+                
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        // Función para filtrar productos
+        function filterProducts() {
+            const categoryValue = document.getElementById('categoryFilter').value;
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const sortValue = document.getElementById('sortFilter').value;
+            
+            let filteredProducts = [...products];
+            
+            // Filtrar por categoría
+            if (categoryValue !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.category === categoryValue);
+            }
+            
+            // Filtrar por búsqueda
+            if (searchValue.trim() !== '') {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.title.toLowerCase().includes(searchValue) || 
+                    product.category.toLowerCase().includes(searchValue)
+                );
+            }
+            
+            // Ordenar productos
+            switch(sortValue) {
+                case 'price-low':
+                    filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+                    break;
+                case 'discount':
+                    filteredProducts.sort((a, b) => {
+                        const discountA = parseInt(a.discount.replace('%', '').replace('-', ''));
+                        const discountB = parseInt(b.discount.replace('%', '').replace('-', ''));
+                        return discountB - discountA;
+                    });
+                    break;
+                case 'rating':
+                    filteredProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+                default: // 'popular'
+                    filteredProducts.sort((a, b) => b.sales - a.sales);
+            }
+            
+            renderProducts(filteredProducts);
+        }
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar todos los productos al cargar
+            renderProducts(products);
+            
+            // Filtrado por categoría (desplegable)
+            document.getElementById('categoryFilter').addEventListener('change', filterProducts);
+            
+            // Ordenar productos
+            document.getElementById('sortFilter').addEventListener('change', filterProducts);
+            
+            // Búsqueda
+            document.getElementById('searchInput').addEventListener('input', filterProducts);
+            
+            // Filtrado por categoría (menú desplegable)
+            const categoryLinks = document.querySelectorAll('.dropdown-content a[data-category]');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.dataset.category;
+                    document.getElementById('categoryFilter').value = category;
+                    filterProducts();
+                });
+            });
+            
+            // Menú responsive
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Dropdown en móvil
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Pagination (demo)
+            const paginationButtons = document.querySelectorAll('.pagination button');
+            paginationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    paginationButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Newsletter form (demo)
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('¡Gracias por suscribirte a nuestra newsletter!');
+                this.reset();
+            });
+        });
+
+        // Función para añadir un nuevo producto
+        function addProduct(product) {
+            products.push(product);
+            filterProducts();
+        }
+    </script>
+
+
+</body></html>
